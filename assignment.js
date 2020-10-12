@@ -39,7 +39,8 @@ if(totalValue < Mode){
     currentValue = 1;
     checkTotal()
   }
-   vibration(limittMode)
+   vibration()
+
 
   return (
     current.textContent = currentValue,
@@ -53,7 +54,7 @@ if(totalValue < Mode){
 function checkTotal(){
   if(totalValue === Mode ){
     text.textContent = ' Please RESET!'
-    vibrate()
+    vibrate(200)
   }
 }
 
@@ -68,7 +69,7 @@ function reset (){
    textValue = text.textContent
    Mode = 99;
    currentMode = 34;
-   vibrate()
+   vibrate(100)
    text.textContent = 'You have reset!'
    limittMode = 33;
 
@@ -87,17 +88,19 @@ function changeMode(){
    text.textContent = 'Mode is Updated!'
    limittMode = 101;
   
-   vibrate()
+   vibrate(100)
 }
 
-function vibrate() {
+function vibrate(vib) {
   
-  navigator.vibrate([50]);
+  navigator.vibrate([vib]);
 }
 
-function vibration (limit){
-  if(currentValue === limit){
-    vibrate()
+function vibration (){
+  if(currentValue === limittMode){
+    vibrate(200)
+  }else{
+    vibrate(10)
   }
 }
 
